@@ -27,7 +27,7 @@ class AdStore extends FormRequest
             'title' => ['required','unique:ads'],
             'description' => 'required',
             'location' => 'required',
-            'price' => ['integer','required']
+            'price' => ['numeric','required']
         ];
     }
 }
