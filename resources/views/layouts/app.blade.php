@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a href="{{ route('ad.create') }}" class="nav-link">Add advertisement</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('ad.index') }}" class="nav-link">All Advertise</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

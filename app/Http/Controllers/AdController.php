@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class AdController extends Controller
 {
+    public function index()
+    {
+        $ads = Ad::latest()->paginate(2);
+        return view('ads',compact('ads'));
+    }
     public function create()
     {
         return view('create');
@@ -22,6 +27,7 @@ class AdController extends Controller
         $ad->description = $validated['description'];
         $ad->location = $validated['location'];
         $ad->price = $validated['price'];
+        $ad->user_id = auth()->user()->id;
         $ad->save();
         return redirect()->route('welcome')->with('success', 'Advertise has been created');
     }

@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Description is here</label>
-                <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" cols="30" rows="6" value="{{ old('description') }}" autocomplete="description" autofocus></textarea>
+                <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" cols="30" rows="6" autocomplete="description" autofocus>{{ old('description') }}</textarea>
                 @error('description')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
