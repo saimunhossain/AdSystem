@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/','AdController@welcome')->name('ad.welcome');
+Route::get('/','AdController@welcome')->name('welcome');
 Route::get('/advertises','AdController@index')->name('ad.index');
 Route::get('/advertise', 'AdController@create')->name('ad.create');
 Route::post('/advertise/create','AdController@store')->name('ad.store');

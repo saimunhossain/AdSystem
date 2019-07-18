@@ -87,7 +87,7 @@
                     @enderror
                 </div>
             @endguest
-            <button type="submit" class="btn btn-success">Publish advertise</button>
+            <button type="submit" class="btn btn-outline-primary">Publish advertise</button>
         </form>
     </div>
 @endsection

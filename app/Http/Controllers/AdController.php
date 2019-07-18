@@ -22,7 +22,7 @@ class AdController extends Controller
 
     public function index()
     {
-        $ads = Ad::latest()->paginate(2);
+        $ads = Ad::latest()->paginate(5);
         return view('ads',compact('ads'));
     }
     public function create()
