@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Ad;
 use App\Http\Requests\AdStore;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdController extends Controller
 {
+    use RegistersUsers;
+
     public function index()
     {
         $ads = Ad::latest()->paginate(2);
@@ -21,6 +27,20 @@ class AdController extends Controller
     public function store(AdStore $request)
     {
         $validated = $request->validated();
+        if(!Auth::check()){
+            $request->validate([
+                'name' => 'required|unique:users',
+                'email' => 'required|email|unique:users',
+                'password' => 'required|confirmed',
+                'password_confirmation' => 'required'
+            ]);
+            $user = User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
+            $this->guard()->login($user);
+        }
 
         $ad = new Ad();
         $ad->title = $validated['title'];
