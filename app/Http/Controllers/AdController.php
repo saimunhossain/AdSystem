@@ -14,6 +14,12 @@ class AdController extends Controller
 {
     use RegistersUsers;
 
+    public function welcome()
+    {
+        $ad = Ad::latest()->get();
+        return view('welcome',compact('ad'));
+    }
+
     public function index()
     {
         $ads = Ad::latest()->paginate(2);
