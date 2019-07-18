@@ -23,3 +23,7 @@ Route::get('/advertises','AdController@index')->name('ad.index');
 Route::get('/advertise', 'AdController@create')->name('ad.create');
 Route::post('/advertise/create','AdController@store')->name('ad.store');
 Route::post('/search','AdController@search')->name('ad.search');
+
+/*Message Routes*/
+Route::get('/message/{seller_id}/{ad_id}','MessageController@create')->name('message.create');
+Route::post('/message','MessageController@store')->name('message.store');
