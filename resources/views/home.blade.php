@@ -52,7 +52,7 @@
                     @foreach($messages as $message)
                         <div class="cont">
                             <img class="img-rounded" src="https://via.placeholder.com/80x80" alt="Avatar">
-                            <p><span class="badge badge-primary float-right">John Smith</span></p>
+                            <p><span class="badge badge-primary float-right">{{ getBuyerName($message->buyer_id) }}</span></p>
                             <p>{{ $message->content }}</p>
                             <span class="time-right">{{ $message->created_at->diffForHumans() }}</span>
                         </div>
