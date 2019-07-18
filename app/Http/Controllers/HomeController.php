@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
+use function Sodium\compare;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $messages = Message::where('seller_id', '=', auth()->user()->id)->latest()->get();
+        return view('home',compact('messages'));
     }
 }
