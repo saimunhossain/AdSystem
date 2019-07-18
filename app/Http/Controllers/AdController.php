@@ -31,4 +31,13 @@ class AdController extends Controller
         $ad->save();
         return redirect()->route('welcome')->with('success', 'Advertise has been created');
     }
+
+    public function search(Request $request)
+    {
+        $words = $request->words;
+        $ads = Ad::where('title','LIKE', "%$words%")
+            ->orWhere('description', 'LIKE', "%$words%")
+            ->latest()->get();
+        return response()->json(['success' => true, 'ads' => $ads]);
+    }
 }

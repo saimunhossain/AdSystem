@@ -18,7 +18,7 @@ class CreateAdsTable extends Migration
             $table->string('title');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('description');
+            $table->longText('description');
             $table->string('location');
             $table->float('price');
             $table->timestamps();

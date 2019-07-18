@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/advertises','AdController@index')->name('ad.index');
 Route::get('/advertise', 'AdController@create')->name('ad.create');
 Route::post('/advertise/create','AdController@store')->name('ad.store');
+Route::post('/search','AdController@search')->name('ad.search');
