@@ -29,7 +29,7 @@
                             <p class="card-text">{{ Str::limit($ad->description,150) }}</p>
                             <h6><span class="badge badge-primary">{{ $ad->location }}</span></h6>
                             <hr>
-                            <a href="" class="btn btn-outline-primary">Go Details</a>
+                            <a href="{{ route('ad.show',$ad->id) }}" class="btn btn-outline-primary">Go Details</a>
                             <a href="{{ route('message.create',['seller_id' => $ad->user_id, 'ad_id' => $ad->id]) }}" class="btn btn-outline-primary float-right">Contact to Seller</a>
                         </div>
                     </div>

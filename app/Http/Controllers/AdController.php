@@ -60,4 +60,10 @@ class AdController extends Controller
             ->latest()->get();
         return response()->json(['success' => true, 'ads' => $ads]);
     }
+
+    public function show($id)
+    {
+        $ad = Ad::find($id);
+        return view('show',compact('ad'));
+    }
 }
